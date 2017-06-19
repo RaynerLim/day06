@@ -7,25 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- load angular script -->
-    <script src = "/angular/angular.js"></script>
-    
-    <!-- load my app script -->
-    <script src="index.js"></script>
-
     <title>Document</title>
     
     <!-- load jquery -->
-    <script src="/jquery/dist/jquery.js"></script>
 
     <!-- Load bootstrap -->
-    <link rel="stylesheet" herf="/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+
+    <script src="/jquery/dist/jquery.js"></script>
+
     <script src="/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- load angular script -->
+    <script src = "/angular/angular.js"></script>
+
+    <!-- load my app script -->
+    <script src="index.js"></script>
 
 
 </head>
 
 <body ng-controller="MyCon as myCon">
-    
+
+    <h1> Feedback </h1>
+    <div class="container">
+
+        <div class ="row">
+            <div class="col-md-12">
+                <form name="feedbackForm" novalidate ng-submit="myCon.submitForm()">
+
+                    <div class="form-group">
+                        <label for "fffName">Name: </label>
+                        <input type="name" class="form-control" id="fffName" placeholder="name" ng-model="myCon.name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for "fffEmail">Email: </label>
+                        <input type="email" class="form-control" id="fffEmail" placeholder="email" ng-model="myCon.email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for "fffPhone">Phone: </label>
+                        <input type="number" class="form-control" id="fffPhone" placeholder="phone" ng-model="myCon.phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for "fffComment">Comment: </label>
+                        </br>
+                        <textarea class="form-control" rows="5" id="fffComment" placeholder="comments" ng-model="myCon.comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for "opt">Experience: </label>
+                            </br>
+                            <div id="experience">
+                            <label>
+                                <input type="radio" name="opt" ng-model="myCon.exp" id="fffGood" value="Good" checked>
+                                Good
+                            </label>
+                            <label>
+                                <input type="radio" name="opt" ng-model="myCon.exp" id="fffNeutral" value="Neutral">
+                                Neutral
+                            </label>
+                            <label>
+                                <input type="radio" name="opt" ng-model="myCon.exp" id="fffBad" value="Bad">
+                                Bad
+                            </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-primary" ng-click="myCon.resetForm()">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
